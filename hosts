@@ -1,6 +1,9 @@
 127.0.0.1	localhost
 127.0.0.1	evan-pc
 
+173.194.64.84	mail.google.com
+173.194.64.84   googlemail.l.google.com
+173.194.64.84   www.gmail.com
 173.194.64.84   mail.l.gogle.com
 173.194.64.84   www.l.google.com
 173.194.64.84   www1.l.google.com
@@ -203,7 +206,6 @@
 173.194.64.84	linkhelp.clients.google.com
 173.194.64.84	local.google.com
 173.194.64.84	m.google.com
-173.194.64.84	mail.google.com
 173.194.64.84	map.google.com
 173.194.64.84	maps.google.com
 173.194.64.84	maps.l.google.com
