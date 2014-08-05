@@ -1,8 +1,15 @@
 # %SystemRoot%\system32\drivers\etc\hosts
 # /etc/hosts
 
+# 8-5 chrome
+
 127.0.0.1	localhost
 
+173.194.64.84   www-googletagmanager.l.google.com	
+173.194.64.84	cloud.google.com
+173.194.64.84	fonts.gstatic.com
+173.194.64.84	www.chrome.com
+173.194.64.84	developer.chrome.com
 173.194.64.84	mail.google.com
 173.194.64.84   googlemail.l.google.com
 173.194.64.84   www.gmail.com
@@ -524,11 +531,9 @@
 173.194.64.84	accounts.blogger.com
 173.194.64.84	android.googlesource.com
 173.194.64.84	auth.keyhole.com
-173.194.64.84	chrome.angrybirds.com
 173.194.64.84	developer.android.com
 173.194.64.84	domains.googlesyndication.com
 173.194.64.84	earthengine.googlelabs.com
-173.194.64.84	feeds.feedburner.com
 173.194.64.84	g.co
 173.194.64.84	goo.gl
 173.194.64.84	listen.googlelabs.com
