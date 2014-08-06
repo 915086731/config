@@ -1,4 +1,4 @@
-" 2014-07-28
+" 2014-09-6
 " error correcting
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
@@ -58,18 +58,18 @@ endfunction
 " Mapping key for move cursor around windows
 nmap <C-j><C-j> <C-W>j
 nmap <C-k><C-k> <C-W>k
-nmap <C-l><C-l> <C-W>l 
-nmap <C-h><C-h> <C-W>h 
+nmap <C-l><C-l> <C-W>l
+nmap <C-h><C-h> <C-W>h
 nmap <C-left> <C-W>h
 nmap <C-right> <C-W>l
 nmap <C-up> <C-W>k
 nmap <C-down> <C-W>j
 imap <A-j> <down>
 imap <A-k> <up>
-imap <A-l> <Right> 
-imap <A-h> <Left> 
+imap <A-l> <Right>
+imap <A-h> <Left>
 
-vmap <C-c> "+y 
+vmap <C-c> "+y
 imap <C-v> <ESC>"+gp
 cmap <C-v> <C-r>+
 
