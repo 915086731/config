@@ -1,10 +1,11 @@
 # %SystemRoot%\system32\drivers\etc\hosts
 # /etc/hosts
 
-# 8-5 chrome
+# 8-6 
 
 127.0.0.1	localhost
 
+173.194.64.84   imap.gmail.com
 173.194.64.84   www-googletagmanager.l.google.com	
 173.194.64.84	cloud.google.com
 173.194.64.84	fonts.gstatic.com
