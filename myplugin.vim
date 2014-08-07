@@ -106,6 +106,7 @@ set fileencodings=utf-8,gbk,ucs-bom,cp936,latin1
 set nobackup
 set nocp
 set hlsearch
+set incsearch
 set ignorecase
 filetype plugin on 
 set cscopequickfix=s-,c-,d-,i-,t-,e-,g-,f- 
