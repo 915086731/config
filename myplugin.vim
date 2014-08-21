@@ -1,5 +1,5 @@
-" 2014-09-6
-" error correcting
+" 2014-08-21
+" Add mapping to K
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
 command  -nargs=* MyProjectLoad call s:MyProjectLoad(<f-args>)
@@ -69,9 +69,12 @@ imap <A-k> <up>
 imap <A-l> <Right>
 imap <A-h> <Left>
 
+" Copy/Paste
 vmap <C-c> "+y
 imap <C-v> <ESC>"+gp
 cmap <C-v> <C-r>+
+
+nmap K a_<Esc>r
 
 command! -nargs=+ CSf :cs f f <args>
 command! -nargs=+ CSe :cs f e <args>
