@@ -91,6 +91,8 @@ nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
+map <MiddleMouse> <ESC>:cs f g <C-R>=expand("<cword>")<CR><CR>
+
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
 map #5 <ESC>:tag 
 map #6 <ESC>:cs f e 
