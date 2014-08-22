@@ -45,8 +45,8 @@ function s:MyMapping(...)
     " Mapping cursor for cscope  
     map <S-up>  <ESC>:cprevious<CR>
     map <S-down> <ESC>:cnext<CR>
-    map <S-left>  <ESC>:col<CR>
-    map <S-right> <ESC>:cnew<CR>
+    map <S-left>  <ESC>:col<CR>:cc<CR>
+    map <S-right> <ESC>:cnew<CR>:cc<CR>
     
     " Mapping cursor for ctags
     map <A-up>  <ESC>:tp<CR>
