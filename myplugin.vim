@@ -1,5 +1,5 @@
-" 2014-08-21
-" Add mapping to K
+" 2014-08-22
+" Add mapping to middle mouse
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
 command  -nargs=* MyProjectLoad call s:MyProjectLoad(<f-args>)
@@ -93,6 +93,8 @@ nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 nmap <MiddleMouse> <ESC><LeftMouse>:cs f g <C-R>=expand("<cword>")<CR><CR>
 imap <MiddleMouse> <ESC><LeftMouse>:cs f g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
+imap <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
 
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
 map #5 <ESC>:tag 
