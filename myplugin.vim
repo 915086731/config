@@ -95,6 +95,8 @@ nmap <MiddleMouse> <ESC><LeftMouse>:cs f g <C-R>=expand("<cword>")<CR><CR>
 imap <MiddleMouse> <ESC><LeftMouse>:cs f g <C-R>=expand("<cword>")<CR><CR>
 nmap <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
 imap <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
+map <S-LeftMouse> <C-o>
+map <S-RightMouse> <C-i>
 
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
 map #5 <ESC>:tag 
