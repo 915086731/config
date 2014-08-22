@@ -98,9 +98,15 @@ imap <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
 map <S-LeftMouse> <C-o>
 map <S-RightMouse> <C-i>
 
+map #1 <ESC>:help <C-R>=expand("<cword>")<CR><CR>
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
-map #5 <ESC>:tag 
-map #6 <ESC>:cs f e 
+map #3 <ESC>:tag<SPACE>
+map #4 <ESC>:cs f e<SPACE>
+map <C-F4> <ESC>:cs f g<SPACE>
+map #5 <ESC>mA
+map <C-F5> <ESC>'A
+map #6 <ESC>mB
+map <C-F6> <ESC>'B
 map <F10> <ESC>:w<CR>:make<CR>
 
 "Plugins setting
