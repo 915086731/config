@@ -147,10 +147,10 @@ map #3 <ESC>:call MySearch('tag')<CR>
 map <C-F3> <ESC>:call MySearch('cscope-g')<CR>
 map #4 <ESC>:call MySearch('cscope-e')<CR>
 map <C-F4> <ESC>:call MySearch('vimgrep')<CR>
-map #5 <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
-map <C-F5> <ESC>'A
-map #6 <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
-map <C-F6> <ESC>'B
+map #5 <ESC>'A
+map <C-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
+map #6 <ESC>'B
+map <C-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
 map <F10> <ESC>:w<CR>:make<CR>
 
 "Plugins setting
