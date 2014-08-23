@@ -87,12 +87,12 @@ function! MySearch(...)
         return
     endif
     if a:1 == 'vimgrep'
-        let l:s = input('vimgrep * -R :')
+        let l:s = input('vimgrep :')
         if l:s == ''
             echo "Cancel search!"
             return
         endif
-        execute 'vimgrep /' . l:s . '/ * -R'
+        execute 'vimgrep /' . l:s . '/ **/*.[ch]'
         return
     endif
 endfunction
