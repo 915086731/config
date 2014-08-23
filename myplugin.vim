@@ -98,7 +98,8 @@ imap <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
 map <S-LeftMouse> <C-o>
 map <S-RightMouse> <C-i>
 
-map #1 <ESC>:help <C-R>=expand("<cword>")<CR><CR>
+map #1 <ESC>:help<SPACE> 
+map <C-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
 map #3 <ESC>:tag<SPACE>
 map #4 <ESC>:cs f e<SPACE>
