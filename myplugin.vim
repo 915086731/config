@@ -1,5 +1,5 @@
-" 2014-08-22
-" Add mapping to middle mouse
+" 2014-08-23
+" Enhance search
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
 command  -nargs=* MyProjectLoad call s:MyProjectLoad(<f-args>)
@@ -55,6 +55,48 @@ function s:MyMapping(...)
     map <A-right> <ESC>:ta<CR>
 endfunction
 
+function! MySearch(...)
+    if a:0 == 0
+        return
+    endif
+    if a:1 == 'tag'
+        let l:s = input('tag :')
+        if l:s == ''
+            echo "Cancel search!"
+            return
+        endif
+        execute 'tag ' . l:s
+        return
+    endif
+    if a:1 == 'cscope-g'
+        let l:s = input('cs f g :')
+        if l:s == ''
+            echo "Cancel search!"
+            return
+        endif
+        execute 'cs f g ' . l:s
+        return
+    endif
+    if a:1 == 'cscope-e'
+        let l:s = input('cs f e :')
+        if l:s == ''
+            echo "Cancel search!"
+            return
+        endif
+        execute 'cs f e ' . l:s
+        return
+    endif
+    if a:1 == 'vimgrep'
+        let l:s = input('vimgrep * -R :')
+        if l:s == ''
+            echo "Cancel search!"
+            return
+        endif
+        execute 'vimgrep /' . l:s . '/ * -R'
+        return
+    endif
+endfunction
+
 " Mapping key for move cursor around windows
 nmap <C-j><C-j> <C-W>j
 nmap <C-k><C-k> <C-W>k
@@ -101,9 +143,10 @@ map <S-RightMouse> <C-i>
 map #1 <ESC>:help<SPACE> 
 map <C-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
-map #3 <ESC>:tag<SPACE>
-map #4 <ESC>:cs f e<SPACE>
-map <C-F4> <ESC>:cs f g<SPACE>
+map #3 <ESC>:call MySearch('tag')<CR>
+map <C-F3> <ESC>:call MySearch('cscope-g')<CR>
+map #4 <ESC>:call MySearch('cscope-e')<CR>
+map <C-F4> <ESC>:call MySearch('vimgrep')<CR>
 map #5 <ESC>mA
 map <C-F5> <ESC>'A
 map #6 <ESC>mB
