@@ -1,5 +1,5 @@
-" 2014-08-23
-" Enhance mark
+" 2014-08-24
+" Enhance search
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
 command  -nargs=* MyProjectLoad call s:MyProjectLoad(<f-args>)
@@ -145,8 +145,10 @@ map <C-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
 map #3 <ESC>:call MySearch('tag')<CR>
 map <C-F3> <ESC>:call MySearch('cscope-g')<CR>
+map <S-F3> <ESC>:call MySearch('cscope-g')<CR>
 map #4 <ESC>:call MySearch('cscope-e')<CR>
 map <C-F4> <ESC>:call MySearch('vimgrep')<CR>
+map <S-F4> <ESC>:call MySearch('vimgrep')<CR>
 map #5 <ESC>'A
 map <C-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
 map <S-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
