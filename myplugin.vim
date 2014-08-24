@@ -188,7 +188,9 @@ set path+=./**
 set wildmenu
 set wildmode=full
 set wildignore=*.o
-set wildignorecase
+if exists("&wildignorecase")
+    set wildignorecase
+endif
 
 colorscheme koehler
 hi Visual  guifg=#000000 guibg=#FFFFFF gui=none
