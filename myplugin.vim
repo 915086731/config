@@ -152,8 +152,10 @@ map <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
 imap <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
 map <S-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
 imap <S-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
-map <S-LeftMouse> <C-o>
-map <S-RightMouse> <C-i>
+map <S-LeftMouse> <ESC><C-o>
+map <S-RightMouse> <ESC><C-i>
+imap <S-LeftMouse> <ESC><C-o>
+imap <S-RightMouse> <ESC><C-i>
 
 map #1 <ESC>:help<SPACE> 
 map <C-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
