@@ -1,4 +1,4 @@
-" 2014-08-24
+" 2014-08-25
 " Enhance search
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
@@ -55,13 +55,18 @@ function s:MyMapping(...)
     map <A-right> <ESC>:ta<CR>
 endfunction
 
+
 function! MySearch(...)
     if a:0 == 0
         return
     endif
     if a:1 == 'tag'
-        let l:s = input('tag :')
-        if l:s == ''
+        if exists("a:2")
+            let l:s = '/' . input('tag /', a:2)
+        else
+            let l:s = input('tag :')
+        endif
+        if l:s == '' || l:s == '/'
             echo "Cancel search!"
             return
         endif
@@ -78,7 +83,11 @@ function! MySearch(...)
         return
     endif
     if a:1 == 'cscope-e'
-        let l:s = input('cs f e :')
+        if exists("a:2")
+            let l:s = input('cs f e :', a:2)
+        else
+            let l:s = input('cs f e :')
+        endif
         if l:s == ''
             echo "Cancel search!"
             return
@@ -87,7 +96,11 @@ function! MySearch(...)
         return
     endif
     if a:1 == 'vimgrep'
-        let l:s = input('vimgrep :')
+        if exists("a:2")
+            let l:s = input('vimgrep :', a:2)
+        else
+            let l:s = input('vimgrep :')
+        endif
         if l:s == ''
             echo "Cancel search!"
             return
@@ -144,21 +157,31 @@ map <S-RightMouse> <C-i>
 
 map #1 <ESC>:help<SPACE> 
 map <C-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
+map <S-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
-map #3 <ESC>:call MySearch('tag')<CR>
+
+nmap #3 <ESC>:call MySearch('tag')<CR>
+vmap #3 <ESC>:call MySearch('tag', '<C-R>*')<CR>
 map <C-F3> <ESC>:call MySearch('cscope-g')<CR>
 map <S-F3> <ESC>:call MySearch('cscope-g')<CR>
-map #4 <ESC>:call MySearch('cscope-e')<CR>
-map <C-F4> <ESC>:call MySearch('vimgrep')<CR>
-map <S-F4> <ESC>:call MySearch('vimgrep')<CR>
+
+nmap #4 <ESC>:call MySearch('cscope-e')<CR>
+vmap #4 <ESC>:call MySearch('cscope-e', '<C-R>*')<CR>
+nmap <C-F4> <ESC>:call MySearch('vimgrep')<CR>
+nmap <S-F4> <ESC>:call MySearch('vimgrep')<CR>
+vmap <C-F4> <ESC>:call MySearch('vimgrep', '<C-R>*')<CR>
+vmap <S-F4> <ESC>:call MySearch('vimgrep', '<C-R>*')<CR>
+
 map #5 <ESC>'A
 map <C-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
 map <S-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
 map <A-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
+
 map #6 <ESC>'B
 map <C-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
 map <S-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
 map <A-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
+
 map <F10> <ESC>:w<CR>:make<CR>
 
 "Plugins setting
