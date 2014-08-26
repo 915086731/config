@@ -194,7 +194,6 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set guifont=Terminal:h14:cGB2312
 set fileencodings=utf-8,gbk,ucs-bom,cp936,latin1
 set nobackup
 set nocp
