@@ -10,9 +10,11 @@ command  -nargs=* MPC call s:MyProjectCreat(<f-args>)
 function s:MyProjectLoad(...)
     set tags=tags
     cs kill -1
-	if a:0 != 0
-        if a:1 == '-C'
+    if a:0 != 0
+        if a:1 == 'ignorecase'
             cs a cscope.out . -C
+        else
+            echo "ignorecase ?"
         endif
     else
         cs a cscope.out
@@ -26,18 +28,18 @@ function s:MyProjectCreat(...)
 endfunction
 
 function! s:MyProject( ... )
-	if a:0 == 0
+    if a:0 == 0
         call s:MyProjectCreat()
         call s:MyProjectLoad()
-		return
-	endif
-	if a:1 == 'create'
+	return
+    endif
+    if a:1 == 'create'
         call s:MyProjectCreat()
-	elseif a:1 == "load"
+    elseif a:1 == "load"
         call s:MyProjectLoad( a:2 )
-	else
-		echo "unknow command, please ask river"
-	endif
+    else
+        echo "load, create ?"
+    endif
 endfunction
 
 function s:MyMapping(...)
