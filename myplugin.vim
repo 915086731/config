@@ -36,7 +36,7 @@ function! s:MyProject( ... )
     if a:1 == 'create'
         call s:MyProjectCreat()
     elseif a:1 == "load"
-        call s:MyProjectLoad( a:2 )
+        call s:MyProjectLoad()
     else
         echo "load, create ?"
     endif
