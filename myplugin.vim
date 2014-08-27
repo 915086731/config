@@ -1,5 +1,4 @@
-" 2014-08-25
-" Enhance search
+" 2014-08-27
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
 command  -nargs=* MyProjectLoad call s:MyProjectLoad(<f-args>)
@@ -225,6 +224,7 @@ hi Visual  guifg=#000000 guibg=#FFFFFF gui=none
 " GUI setting
 "Toggle Menu and Toolbar
 set guifont=Monospace\ 12
+set guioptions+=c
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
