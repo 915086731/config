@@ -78,7 +78,7 @@ function! MySearch(...)
         if exists("a:2")
             let l:s = input('cs f g :', a:2 )
         else
-            let l:s = input('cs f g :')
+            let l:s = input('cs f g <.*xxx.*>:')
         endif
         if l:s == ''
             echo "Cancel search!"
