@@ -65,7 +65,7 @@ function! MySearch(...)
         if exists("a:2")
             let l:s = '/' . input('tag /', a:2)
         else
-            let l:s = input('tag :')
+            let l:s = '/' . input('tag /')
         endif
         if l:s == '' || l:s == '/'
             echo "Cancel search!"
