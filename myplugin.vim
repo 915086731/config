@@ -1,4 +1,4 @@
-" 2014-08-27
+" 2014-08-31
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
 command  -nargs=* MyProjectLoad call s:MyProjectLoad(<f-args>)
@@ -84,7 +84,11 @@ function! MySearch(...)
             echo "Cancel search!"
             return
         endif
-        execute 'cs f g ' . l:s
+        if exists("a:2")
+            execute 'cs f g ' . l:s
+        else
+            execute 'cs f g .*' . l:s . '.*'
+        endif
         return
     endif
     if a:1 == 'cscope-e'
