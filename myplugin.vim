@@ -76,7 +76,7 @@ function! MySearch(...)
     endif
     if a:1 == 'cscope-g'
         if exists("a:2")
-            let l:s = input('cs f g :', a:2 )
+            let l:s = input('cs f g :', '.*' . a:2 . '.*' )
         else
             let l:s = input('cs f g <.*xxx.*>:')
         endif
