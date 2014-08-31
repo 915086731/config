@@ -31,7 +31,7 @@ function! s:MyProject( ... )
     if a:0 == 0
         call s:MyProjectCreat()
         call s:MyProjectLoad()
-	return
+        return
     endif
     if a:1 == 'create'
         call s:MyProjectCreat()
@@ -75,7 +75,11 @@ function! MySearch(...)
         return
     endif
     if a:1 == 'cscope-g'
-        let l:s = input('cs f g :')
+        if exists("a:2")
+            let l:s = input('cs f g :', a:2 )
+        else
+            let l:s = input('cs f g :')
+        endif
         if l:s == ''
             echo "Cancel search!"
             return
@@ -165,8 +169,10 @@ map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
 
 nmap #3 <ESC>:call MySearch('tag')<CR>
 vmap #3 <ESC>:call MySearch('tag', '<C-R>*')<CR>
-map <C-F3> <ESC>:call MySearch('cscope-g')<CR>
-map <S-F3> <ESC>:call MySearch('cscope-g')<CR>
+nmap <C-F3> <ESC>:call MySearch('cscope-g')<CR>
+nmap <S-F3> <ESC>:call MySearch('cscope-g')<CR>
+vmap <C-F3> <ESC>:call MySearch('cscope-g', '<C-R>*')<CR>
+vmap <S-F3> <ESC>:call MySearch('cscope-g', '<C-R>*')<CR>
 
 nmap #4 <ESC>:call MySearch('cscope-e')<CR>
 vmap #4 <ESC>:call MySearch('cscope-e', '<C-R>*')<CR>
