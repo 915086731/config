@@ -1,4 +1,4 @@
-" 2014-08-31
+" 2014-09-14
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
 command  -nargs=* MyProjectLoad call s:MyProjectLoad(<f-args>)
@@ -119,6 +119,39 @@ function! MySearch(...)
     endif
 endfunction
 
+function! MyHighlight(...)
+    if a:0 == 0
+        return
+    endif
+    if a:1 == '1'
+        if exists("a:2")
+            let l:s = a:2
+        else
+            let l:s = input('1 Highlight pattern:')
+            if l:s == ''
+                echo "Cancel highlight!"
+                return
+            endif
+        endif
+        "redraw!
+        "echo "highlight1:".l:s
+        execute 'match MyHighlight1 /' . l:s . '/'
+    endif
+    if a:1 == '2'
+        if exists("a:2")
+            let l:s = a:2
+        else
+            let l:s = input('2 Highlight pattern:')
+            if l:s == ''
+                echo "Cancel highlight!"
+                return
+            endif
+        endif
+        execute '2match MyHighlight2 /' . l:s . '/'
+    endif
+endfunction
+
+
 " Mapping key for move cursor around windows
 nmap <C-j><C-j> <C-W>j
 nmap <C-k><C-k> <C-W>k
@@ -194,6 +227,15 @@ map #6 <ESC>'B
 map <C-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
 map <S-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
 map <A-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
+
+map #7 <ESC>:call MyHighlight('1')<CR>
+nmap <C-F7> <ESC>:call MyHighlight('2')<CR>
+nmap <S-F7> <ESC>:call MyHighlight('2')<CR>
+nmap <A-F7> <ESC>:call MyHighlight('2')<CR>
+vmap #7 <ESC>:call MyHighlight('1', '<C-R>*')<CR>
+vmap <C-F7> <ESC>:call MyHighlight('2', '<C-R>*')<CR>
+vmap <S-F7> <ESC>:call MyHighlight('2', '<C-R>*')<CR>
+vmap <A-F7> <ESC>:call MyHighlight('2', '<C-R>*')<CR>
 
 map <F10> <ESC>:w<CR>:make<CR>
 
