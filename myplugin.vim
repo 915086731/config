@@ -273,6 +273,8 @@ endif
 
 colorscheme koehler
 hi Visual  guifg=#000000 guibg=#FFFFFF gui=none
+highlight MyHighlight1  guifg=yellow term=bold gui=bold,underline
+highlight MyHighlight2  guifg=white  term=bold gui=bold,underline
 "set lines=40 columns=70
 
 " GUI setting
