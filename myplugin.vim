@@ -135,7 +135,7 @@ function! MyHighlight(...)
         endif
         "redraw!
         "echo "highlight1:".l:s
-        execute 'match MyHighlight1 /' . l:s . '/'
+        execute 'match MyHighlight1 /\c' . l:s . '/'
     endif
     if a:1 == '2'
         if exists("a:2")
@@ -147,7 +147,7 @@ function! MyHighlight(...)
                 return
             endif
         endif
-        execute '2match MyHighlight2 /' . l:s . '/'
+        execute '2match MyHighlight2 /\c' . l:s . '/'
     endif
 endfunction
 
