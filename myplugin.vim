@@ -211,7 +211,8 @@ map <S-RightMouse> <ESC><C-i>
 imap <S-LeftMouse> <ESC><C-o>
 imap <S-RightMouse> <ESC><C-i>
 
-map #1 <ESC>:help<SPACE> 
+map #1 <ESC>:help<SPACE>
+vmap #1 <ESC>:help <C-R>*<CR>
 map <C-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
 map <S-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
