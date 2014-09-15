@@ -149,6 +149,18 @@ function! MyHighlight(...)
         endif
         execute '2match MyHighlight2 /\c' . l:s . '/'
     endif
+    if a:1 == '3'
+        if exists("a:2")
+            let l:s = a:2
+        else
+            let l:s = input('3 Highlight pattern:')
+            if l:s == ''
+                echo "Cancel highlight!"
+                return
+            endif
+        endif
+        execute '3match MyHighlight3 /\c' . l:s . '/'
+    endif
 endfunction
 
 
@@ -229,12 +241,12 @@ map <S-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
 map <A-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
 
 map #7 <ESC>:call MyHighlight('1')<CR>
-nmap <C-F7> <ESC>:call MyHighlight('2')<CR>
 nmap <S-F7> <ESC>:call MyHighlight('2')<CR>
+nmap <C-F7> <ESC>:call MyHighlight('3')<CR>
 nmap <A-F7> <ESC>:call MyHighlight('2')<CR>
 vmap #7 <ESC>:call MyHighlight('1', '<C-R>*')<CR>
-vmap <C-F7> <ESC>:call MyHighlight('2', '<C-R>*')<CR>
 vmap <S-F7> <ESC>:call MyHighlight('2', '<C-R>*')<CR>
+vmap <C-F7> <ESC>:call MyHighlight('3', '<C-R>*')<CR>
 vmap <A-F7> <ESC>:call MyHighlight('2', '<C-R>*')<CR>
 
 map <F10> <ESC>:w<CR>:make<CR>
@@ -275,6 +287,7 @@ colorscheme koehler
 hi Visual  guifg=#000000 guibg=#FFFFFF gui=none
 highlight MyHighlight1 guibg=green guifg=yellow term=bold gui=bold,underline
 highlight MyHighlight2 guibg=red guifg=white term=bold gui=bold,underline
+highlight MyHighlight3 guibg=blue guifg=white term=bold gui=bold,underline
 "set lines=40 columns=70
 
 " GUI setting
