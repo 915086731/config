@@ -56,7 +56,8 @@ function s:MyConfig(...)
     map <A-right> <ESC>:ta<CR>
 
     set foldmethod=syntax
-    au BufRead * normal zR
+    set foldlevel=99
+    "au BufRead * normal zR
 endfunction
 
 
@@ -301,6 +302,8 @@ highlight MyHighlight1 guibg=green guifg=yellow term=bold gui=bold,underline
 highlight MyHighlight2 guibg=red guifg=white term=bold gui=bold,underline
 highlight MyHighlight3 guibg=blue guifg=white term=bold gui=bold,underline
 "set lines=40 columns=70
+
+au VimEnter *.c,*.h  call s:MyProjectLoad()
 
 " GUI setting
 "Toggle Menu and Toolbar
