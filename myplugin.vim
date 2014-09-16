@@ -2,7 +2,7 @@
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
 command  -nargs=* MyProjectLoad call s:MyProjectLoad(<f-args>)
-command  -nargs=* MyMapping call s:MyMapping(<f-args>)
+command  -nargs=* MyConfig call s:MyConfig(<f-args>)
 command  -nargs=* MPL call s:MyProjectLoad(<f-args>)
 command  -nargs=* MPC call s:MyProjectCreat(<f-args>)
 
@@ -19,7 +19,7 @@ function s:MyProjectLoad(...)
     else
         cs a cscope.out
     endif
-    call s:MyMapping()
+    call s:MyConfig()
 endfunction
 
 function s:MyProjectCreat(...)
@@ -42,7 +42,7 @@ function! s:MyProject( ... )
     endif
 endfunction
 
-function s:MyMapping(...)
+function s:MyConfig(...)
     " Mapping cursor for cscope  
     map <S-up>  <ESC>:cprevious<CR>
     map <S-down> <ESC>:cnext<CR>
@@ -54,6 +54,15 @@ function s:MyMapping(...)
     map <A-down> <ESC>:tn<CR>
     map <A-left>  <ESC>:po<CR>
     map <A-right> <ESC>:ta<CR>
+
+    set foldmethod=syntax
+    au BufRead * normal zR
+    map <MiddleMouse> <ESC><LeftMouse>:cs f g <C-R>=expand("<cword>")<CR><CR>
+    imap <MiddleMouse> <ESC><LeftMouse>:cs f g <C-R>=expand("<cword>")<CR><CR>
+    map <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
+    imap <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
+    map <S-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
+    imap <S-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
 endfunction
 
 
@@ -200,12 +209,6 @@ nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-map <MiddleMouse> <ESC><LeftMouse>:cs f g <C-R>=expand("<cword>")<CR><CR>
-imap <MiddleMouse> <ESC><LeftMouse>:cs f g <C-R>=expand("<cword>")<CR><CR>
-map <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
-imap <C-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
-map <S-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
-imap <S-MiddleMouse> <ESC><LeftMouse>:cs f c <C-R>=expand("<cword>")<CR><CR>
 map <S-LeftMouse> <ESC><C-o>
 map <S-RightMouse> <ESC><C-i>
 imap <S-LeftMouse> <ESC><C-o>
