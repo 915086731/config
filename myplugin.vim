@@ -75,6 +75,7 @@ function! MySearch(...)
             echo "Cancel search!"
             return
         endif
+        let l:s = substitute(l:s, " ", ".*", "g")
         execute 'tag ' . l:s
         return
     endif
@@ -88,6 +89,7 @@ function! MySearch(...)
             echo "Cancel search!"
             return
         endif
+        let l:s = substitute(l:s, " ", ".*", "g")
         if exists("a:2")
             execute 'cs f g ' . l:s
         else
