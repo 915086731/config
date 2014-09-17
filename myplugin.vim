@@ -17,7 +17,10 @@ function s:MyProjectLoad(...)
             echo "ignorecase ?"
         endif
     else
-        cs a cscope.out
+        if filereadable("cscope.out")
+            echo "cscope.out exists! Add now!"
+            cs a cscope.out
+        endif
     endif
     call s:MyConfig()
 endfunction
