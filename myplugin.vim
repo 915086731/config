@@ -70,18 +70,18 @@ function! MySearch(...)
     endif
     if a:1 == 'tag'
         if exists("a:2")
-            let l:s = '/' . input('tag /', a:2)
+            let l:s = '/' . input('ltag /', a:2)
         else
-            let l:s = '/' . input('tag /')
+            let l:s = '/' . input('ltag /')
         endif
         if l:s == '' || l:s == '/'
             echo "Cancel search!"
             return
         endif
         let l:s = substitute(l:s, " ", ".*", "g")
-        execute 'tag ' . l:s
+        execute 'ltag ' . l:s
         redraw
-        echo "tag " . l:s
+        echo "ltag " . l:s
         return
     endif
     if a:1 == 'cscope-g'
