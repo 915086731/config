@@ -80,6 +80,8 @@ function! MySearch(...)
         endif
         let l:s = substitute(l:s, " ", ".*", "g")
         execute 'tag ' . l:s
+        redraw
+        echo "tag " . l:s
         return
     endif
     if a:1 == 'cscope-g'
@@ -132,6 +134,7 @@ function! MyHighlight(...)
     if a:0 == 0
         return
     endif
+    redraw
     if a:1 == '1'
         if exists("a:2")
             let l:s = a:2
