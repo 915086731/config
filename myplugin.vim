@@ -145,8 +145,6 @@ function! MyHighlight(...)
                 return
             endif
         endif
-        "redraw!
-        "echo "highlight1:".l:s
         execute 'match MyHighlight1 /\c' . l:s . '/'
     endif
     if a:1 == '2'
