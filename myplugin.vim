@@ -26,7 +26,11 @@ function s:MyProjectLoad(...)
 endfunction
 
 function s:MyProjectCreat(...)
-    silent !ctags -R --c++-kinds=+p --fields=+iamS --extra=+q .
+    silent !ctags -R  --fields=+iamS --extra=+q .
+"    silent !ctags -R --c++-kinds=-p --c-kinds=-p --fields=+iamS --extra=+q .
+"    silent !ctags -R --c++-kinds=p --c-kinds=p --fields=+iamS --extra=+q  -f tags1  . 
+"    silent !cat tags1 >>tags
+"    silent !rm tags1
     silent !cscope -Rbkq
 endfunction
 
