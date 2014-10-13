@@ -26,12 +26,15 @@ function s:MyProjectLoad(...)
 endfunction
 
 function s:MyProjectCreat(...)
-    silent !ctags -R  --fields=+iamS --extra=+q .
-"    silent !ctags -R --c++-kinds=-p --c-kinds=-p --fields=+iamS --extra=+q .
-"    silent !ctags -R --c++-kinds=p --c-kinds=p --fields=+iamS --extra=+q  -f tags1  . 
-"    silent !cat tags1 >>tags
-"    silent !rm tags1
+    call s:MyProjectCreatTag()
     silent !cscope -Rbkq
+endfunction
+
+function s:MyProjectCreatTag(...)
+    silent !ctags -R --c++-kinds=-p --c-kinds=-p --fields=+iamS --extra=+q .
+    silent !ctags -R --c++-kinds=p --c-kinds=p --fields=+iamS --extra=+q  -f tags1  . 
+    silent !cat tags1 >>tags
+    silent !rm tags1
 endfunction
 
 function! s:MyProject( ... )
@@ -314,6 +317,7 @@ highlight MyHighlight3 guibg=blue guifg=white term=bold gui=bold,underline
 "set lines=40 columns=70
 
 au VimEnter *.c,*.h  call s:MyProjectLoad()
+au BufWritePost *.c,*.cpp,*.h   call s:MyProjectCreatTag()
 
 " GUI setting
 "Toggle Menu and Toolbar
