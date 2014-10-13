@@ -1,4 +1,4 @@
-" 2014-09-14
+" 2014-10-14
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
 command  -nargs=* MyProjectLoad call s:MyProjectLoad(<f-args>)
@@ -206,6 +206,14 @@ function! MyHighlight(...)
     endif
 endfunction
 
+function! SwitchSourceHeader()
+  "update!
+  if (expand ("%:e") == "c")
+    find %:t:r.h
+  else
+    find %:t:r.c
+  endif
+endfunction
 
 " Mapping key for move cursor around windows
 nmap <C-j><C-j> <C-W>j
@@ -266,7 +274,10 @@ map #1 <ESC>:help<SPACE>
 vmap #1 <ESC>:help <C-R>*<CR>
 map <C-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
 map <S-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
+
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
+nmap <S-F2> :call SwitchSourceHeader()<CR>
+nmap <C-F2> :call SwitchSourceHeader()<CR>
 
 nmap #3 <ESC>:call MySearch('tag')<CR>
 vmap #3 <ESC>:call MySearch('tag', '<C-R>*')<CR>
