@@ -37,6 +37,32 @@ function s:MyProjectCreatTag(...)
     silent !rm tags1
 endfunction
 
+function! s:DelTagOfFile(file)
+    let fullpath = a:file
+    let cwd = getcwd()
+    let tagfilename = cwd . "/tags"
+    let f = substitute(fullpath, cwd . "/", "", "")
+    let f = escape(f, './')
+    let cmd = 'sed -i "/' . f . '/d" "' . tagfilename . '"'
+    let resp = system(cmd)
+endfunction
+
+function! s:UpdateTags()
+    let f = expand("%:p")
+    let cwd = getcwd()
+    let tagfilename1 = cwd . "/tags1"
+    let tagfilename2 = cwd . "/tags2"
+    let cmd1 = 'ctags  -f ' . tagfilename1 . ' --c++-kinds=-p +--fields=+iaS --extra=+q ' . '"' . f . '"'
+    let cmd2 = 'ctags  -f ' . tagfilename2 . ' --c++-kinds=p --c-kinds=p --fields=+iaS --extra=+q ' . '"' . f . '"'
+    call s:DelTagOfFile(f)
+    let resp = system(cmd1)
+    let resp = system(cmd2)
+    silent !cat tags1 >>tags
+    silent !cat tags2 >>tags
+    silent !rm tags1
+    silent !rm tags2
+endfunction
+
 function! s:MyProject( ... )
     if a:0 == 0
         call s:MyProjectCreat()
@@ -317,7 +343,7 @@ highlight MyHighlight3 guibg=blue guifg=white term=bold gui=bold,underline
 "set lines=40 columns=70
 
 au VimEnter *.c,*.h  call s:MyProjectLoad()
-au BufWritePost *.c,*.cpp,*.h   call s:MyProjectCreatTag()
+autocmd BufWritePost *.cpp,*.h,*.c call s:UpdateTags()
 
 " GUI setting
 "Toggle Menu and Toolbar
