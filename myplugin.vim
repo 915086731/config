@@ -51,6 +51,9 @@ function! s:DelTagOfFile(file)
 endfunction
 
 function! s:UpdateTags()
+    if !filereadable("tags")
+        return 
+    endif
     let f = expand("%:p")
     let cwd = getcwd()
     let tagfilename1 = cwd . "/tags1"
