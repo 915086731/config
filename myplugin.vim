@@ -293,15 +293,12 @@ nmap <S-F4> <ESC>:call MySearch('vimgrep')<CR>
 vmap <C-F4> <ESC>:call MySearch('vimgrep', '<C-R>*')<CR>
 vmap <S-F4> <ESC>:call MySearch('vimgrep', '<C-R>*')<CR>
 
-map #5 <ESC>'A
-map <C-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
-map <S-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
-map <A-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
 
-map #6 <ESC>'B
-map <C-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
-map <S-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
-map <A-F6> <ESC>mB:echo "'B Mark line:" . <C-R>=line('.')<CR><CR>
+"map <C-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
+map #5 <ESC>'A
+map <C-F5> <ESC>'B
+map <S-F5> <ESC>'B
+map <A-F5> <ESC>'B
 
 map #7 <ESC>:call MyHighlight('1')<CR>
 nmap <S-F7> <ESC>:call MyHighlight('2')<CR>
