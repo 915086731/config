@@ -26,8 +26,11 @@ function s:MyProjectLoad(...)
 endfunction
 
 function s:MyProjectCreat(...)
+    echo "Generating tag file..."
     call s:MyProjectCreatTag()
+    echo "Generating cscope file..."
     silent !cscope -Rbkq
+    redraw
 endfunction
 
 function s:MyProjectCreatTag(...)
