@@ -356,7 +356,7 @@ highlight MyHighlight2 guibg=red guifg=white term=bold gui=bold,underline
 highlight MyHighlight3 guibg=blue guifg=white term=bold gui=bold,underline
 "set lines=40 columns=70
 
-au VimEnter *.c,*.h  call s:MyProjectLoad()
+au VimEnter [Mm]akefile,*.c,*.h  call s:MyProjectLoad()
 autocmd BufWritePost *.cpp,*.h,*.c call s:UpdateTags()
 
 " GUI setting
