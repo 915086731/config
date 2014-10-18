@@ -34,8 +34,8 @@ function s:MyProjectCreat(...)
 endfunction
 
 function s:MyProjectCreatTag(...)
-    silent !ctags -R --c++-kinds=-p --c-kinds=-p --fields=+iamS --extra=+q .
-    silent !ctags -R --c++-kinds=p --c-kinds=p --fields=+iamS --extra=+q  -f tags1  . 
+    silent !ctags -R --langmap=c:.c.h.C.H --c-kinds=-p --c++-kinds=-p --fields=+iamS --extra=+q .
+    silent !ctags -R --langmap=c:.c.h.C.H --c-kinds=p --c++-kinds=p --fields=+iamS --extra=+q  -f tags1  . 
     silent !cat tags1 >>tags
     silent !rm tags1
 endfunction
@@ -58,8 +58,8 @@ function! s:UpdateTags()
     let cwd = getcwd()
     let tagfilename1 = cwd . "/tags1"
     let tagfilename2 = cwd . "/tags2"
-    let cmd1 = 'ctags  -f ' . tagfilename1 . ' --c++-kinds=-p +--fields=+iaS --extra=+q ' . '"' . f . '"'
-    let cmd2 = 'ctags  -f ' . tagfilename2 . ' --c++-kinds=p --c-kinds=p --fields=+iaS --extra=+q ' . '"' . f . '"'
+    let cmd1 = 'ctags  -f ' . tagfilename1 . ' --langmap=c:.c.h.C.H --c-kinds=-p --c++-kinds=-p --fields=+iaS --extra=+q ' . '"' . f . '"'
+    let cmd2 = 'ctags  -f ' . tagfilename2 . ' --langmap=c:.c.h.C.H --c-kinds=p --c++-kinds=p --fields=+iaS --extra=+q ' . '"' . f . '"'
     call s:DelTagOfFile(f)
     let resp = system(cmd1)
     let resp = system(cmd2)
