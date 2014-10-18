@@ -36,7 +36,7 @@ endfunction
 function s:MyProjectCreatTag(...)
     silent !ctags -R --langmap=c:.c.h.C.H --c-kinds=-p --c++-kinds=-p --fields=+iamS --extra=+q .
     silent !ctags -R --langmap=c:.c.h.C.H --c-kinds=p --c++-kinds=p --fields=+iamS --extra=+q  -f tags1  . 
-    silent !cat tags1 >>tags
+    silent !grep -v ^\!_TAG_ tags1 >>tags
     silent !rm tags1
 endfunction
 
@@ -63,8 +63,8 @@ function! s:UpdateTags()
     call s:DelTagOfFile(f)
     let resp = system(cmd1)
     let resp = system(cmd2)
-    silent !cat tags1 >>tags
-    silent !cat tags2 >>tags
+    silent !grep -v ^\!_TAG_ tags1 >>tags
+    silent !grep -v ^\!_TAG_ tags2 >>tags
     silent !rm tags1
     silent !rm tags2
 endfunction
