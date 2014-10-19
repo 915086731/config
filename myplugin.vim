@@ -46,9 +46,9 @@ function! s:UpdateTags()
     endif
     let f = expand("%:.")
     let cwd = getcwd()
-    let tagfilename = cwd . "/tags"
-    let cmd = 'sed -i "/' . f . '/d" "' . tagfilename . '"'
+    let cmd = "awk \'$2!=\"" . expand("%") . "\"\' tags > tags1"
     let resp = system(cmd)
+    silent !mv tags1 tags
     let tagfilename1 = cwd . "/tags1"
     let tagfilename2 = cwd . "/tags2"
     let cmd1 = 'ctags  -f ' . tagfilename1 . ' --langmap=c:.c.h.C.H --c-kinds=-p --c++-kinds=-p --fields=+iaS --extra=+q ' . '"' . f . '"'
