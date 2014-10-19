@@ -40,27 +40,19 @@ function s:MyProjectCreatTag(...)
     silent !rm tags1
 endfunction
 
-function! s:DelTagOfFile(file)
-    let fullpath = a:file
-    let cwd = getcwd()
-    let tagfilename = cwd . "/tags"
-    let f = substitute(fullpath, cwd . "/", "", "")
-    let f = escape(f, './')
-    let cmd = 'sed -i "/' . f . '/d" "' . tagfilename . '"'
-    let resp = system(cmd)
-endfunction
-
 function! s:UpdateTags()
     if !filereadable("tags")
         return 
     endif
-    let f = expand("%:p")
+    let f = expand("%:.")
     let cwd = getcwd()
+    let tagfilename = cwd . "/tags"
+    let cmd = 'sed -i "/' . f . '/d" "' . tagfilename . '"'
+    let resp = system(cmd)
     let tagfilename1 = cwd . "/tags1"
     let tagfilename2 = cwd . "/tags2"
     let cmd1 = 'ctags  -f ' . tagfilename1 . ' --langmap=c:.c.h.C.H --c-kinds=-p --c++-kinds=-p --fields=+iaS --extra=+q ' . '"' . f . '"'
     let cmd2 = 'ctags  -f ' . tagfilename2 . ' --langmap=c:.c.h.C.H --c-kinds=p --c++-kinds=p --fields=+iaS --extra=+q ' . '"' . f . '"'
-    call s:DelTagOfFile(f)
     let resp = system(cmd1)
     let resp = system(cmd2)
     silent !grep -v ^\!_TAG_ tags1 >>tags
