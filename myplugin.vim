@@ -1,4 +1,4 @@
-" 2014-10-14
+" 2014-11-01
 
 command  -nargs=* MyProject call s:MyProject(<f-args>)
 command  -nargs=* MyProjectLoad call s:MyProjectLoad(<f-args>)
@@ -233,6 +233,7 @@ imap <C-v> <ESC>"+gp
 cmap <C-v> <C-r>+
 
 nmap K a_<Esc>r
+nmap gdd gd<C-O>
 
 command! -nargs=+ CSf :cs f f <args>
 command! -nargs=+ CSe :cs f e <args>
