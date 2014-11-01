@@ -233,7 +233,7 @@ imap <C-v> <ESC>"+gp
 cmap <C-v> <C-r>+
 
 nmap K a_<Esc>r
-nmap gdd gd<C-O>
+nmap gdd :set hlsearch<CR>:let @/='\<'.expand("<cword>").'\>'<CR>
 
 command! -nargs=+ CSf :cs f f <args>
 command! -nargs=+ CSe :cs f e <args>
