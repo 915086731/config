@@ -332,8 +332,9 @@ set nu
 set numberwidth=1
 
 cd %:p:h
-set path=""
-set path+=./**
+set path=./**
+set backupdir=/tmp
+set directory=/tmp
 
 set wildmenu
 set wildmode=full
