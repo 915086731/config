@@ -115,6 +115,24 @@ function! MySearch(...)
         echo "ltag " . l:s
         return
     endif
+    if a:1 == 'cscope-f'
+        if exists("a:2")
+            let l:s = input('cs f f :', '.*' . a:2 . '.*' )
+        else
+            let l:s = input('cs f f <.*xxx.*>:')
+        endif
+        if l:s == ''
+            echo "Cancel find!"
+            return
+        endif
+        let l:s = substitute(l:s, " ", ".*", "g")
+        if exists("a:2")
+            execute 'cs f f ' . l:s
+        else
+            execute 'cs f f .*' . l:s . '.*'
+        endif
+        return
+    endif
     if a:1 == 'cscope-g'
         if exists("a:2")
             let l:s = input('cs f g :', '.*' . a:2 . '.*' )
@@ -276,7 +294,8 @@ map <S-F1> <ESC>:help <C-R>=expand("<cword>")<CR><CR>
 
 map #2 <ESC>:MPL<CR><ESC>:cs f g main<CR>
 nmap <S-F2> :call SwitchSourceHeader()<CR>
-nmap <C-F2> :call SwitchSourceHeader()<CR>
+nmap <C-F2> <ESC>:call MySearch('cscope-f')<CR>
+vmap <C-F2> <ESC>:call MySearch('cscope-f', '<C-R>*')<CR>
 
 nmap #3 <ESC>:call MySearch('tag')<CR>
 vmap #3 <ESC>:call MySearch('tag', '<C-R>*')<CR>
