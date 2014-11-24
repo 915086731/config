@@ -304,12 +304,12 @@ nmap <S-F3> <ESC>:call MySearch('cscope-g')<CR>
 vmap <C-F3> <ESC>:call MySearch('cscope-g', '<C-R>*')<CR>
 vmap <S-F3> <ESC>:call MySearch('cscope-g', '<C-R>*')<CR>
 
-nmap #4 <ESC>:call MySearch('cscope-e')<CR>
-vmap #4 <ESC>:call MySearch('cscope-e', '<C-R>*')<CR>
-nmap <C-F4> <ESC>:call MySearch('vimgrep')<CR>
-nmap <S-F4> <ESC>:call MySearch('vimgrep')<CR>
-vmap <C-F4> <ESC>:call MySearch('vimgrep', '<C-R>*')<CR>
-vmap <S-F4> <ESC>:call MySearch('vimgrep', '<C-R>*')<CR>
+nmap #4 <ESC>:call MySearch('vimgrep')<CR>
+vmap #4 <ESC>:call MySearch('vimgrep', '<C-R>*')<CR>
+nmap <C-F4> <ESC>:call MySearch('cscope-e')<CR>
+nmap <S-F4> <ESC>:call MySearch('cscope-e')<CR>
+vmap <C-F4> <ESC>:call MySearch('cscope-e', '<C-R>*')<CR>
+vmap <S-F4> <ESC>:call MySearch('cscope-e', '<C-R>*')<CR>
 
 
 "map <C-F5> <ESC>mA:echo "'A Mark line:" . <C-R>=line('.')<CR><CR>
