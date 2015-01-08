@@ -352,8 +352,10 @@ set numberwidth=1
 
 cd %:p:h
 set path=./**
-set backupdir=/tmp
-set directory=/tmp
+if has('unix')
+    set backupdir=/tmp
+    set directory=/tmp
+endi
 
 set wildmenu
 set wildmode=full
